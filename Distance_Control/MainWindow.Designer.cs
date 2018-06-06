@@ -1,6 +1,6 @@
 ﻿namespace Distance_Control
 {
-    partial class Form1
+    partial class MainWindow
     {
         /// <summary>
         /// Erforderliche Designervariable.
@@ -30,15 +30,17 @@
         {
             this.components = new System.ComponentModel.Container();
             this.Connection_Groupbox = new System.Windows.Forms.GroupBox();
+            this.Disconnect_button = new System.Windows.Forms.Button();
+            this.Connect_button = new System.Windows.Forms.Button();
             this.ComPort_combobox = new System.Windows.Forms.ComboBox();
             this.ComPort_label = new System.Windows.Forms.Label();
-            this.Connect_button = new System.Windows.Forms.Button();
-            this.Disconnect_button = new System.Windows.Forms.Button();
             this.ReceivedData_groupbox = new System.Windows.Forms.GroupBox();
-            this.ClearReceived_button = new System.Windows.Forms.Button();
             this.ReceivedData_textbox = new System.Windows.Forms.TextBox();
-            this.Calibrate06_button = new System.Windows.Forms.Button();
-            this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
+            this.ClearReceived_button = new System.Windows.Forms.Button();
+            this.CalibrateLF025_button = new System.Windows.Forms.Button();
+            this.Atmega328SerialPort = new System.IO.Ports.SerialPort(this.components);
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.Connection_Groupbox.SuspendLayout();
             this.ReceivedData_groupbox.SuspendLayout();
             this.SuspendLayout();
@@ -55,6 +57,26 @@
             this.Connection_Groupbox.TabIndex = 0;
             this.Connection_Groupbox.TabStop = false;
             this.Connection_Groupbox.Text = "Connection";
+            // 
+            // Disconnect_button
+            // 
+            this.Disconnect_button.Location = new System.Drawing.Point(24, 93);
+            this.Disconnect_button.Name = "Disconnect_button";
+            this.Disconnect_button.Size = new System.Drawing.Size(121, 23);
+            this.Disconnect_button.TabIndex = 3;
+            this.Disconnect_button.Text = "Disconnect";
+            this.Disconnect_button.UseVisualStyleBackColor = true;
+            this.Disconnect_button.Click += new System.EventHandler(this.Disconnect_button_Click);
+            // 
+            // Connect_button
+            // 
+            this.Connect_button.Location = new System.Drawing.Point(24, 63);
+            this.Connect_button.Name = "Connect_button";
+            this.Connect_button.Size = new System.Drawing.Size(121, 23);
+            this.Connect_button.TabIndex = 2;
+            this.Connect_button.Text = "Connect";
+            this.Connect_button.UseVisualStyleBackColor = true;
+            this.Connect_button.Click += new System.EventHandler(this.Connect_button_Click);
             // 
             // ComPort_combobox
             // 
@@ -73,34 +95,24 @@
             this.ComPort_label.TabIndex = 0;
             this.ComPort_label.Text = "Serial Port:";
             // 
-            // Connect_button
-            // 
-            this.Connect_button.Location = new System.Drawing.Point(24, 63);
-            this.Connect_button.Name = "Connect_button";
-            this.Connect_button.Size = new System.Drawing.Size(121, 23);
-            this.Connect_button.TabIndex = 2;
-            this.Connect_button.Text = "Connect";
-            this.Connect_button.UseVisualStyleBackColor = true;
-            // 
-            // Disconnect_button
-            // 
-            this.Disconnect_button.Location = new System.Drawing.Point(24, 93);
-            this.Disconnect_button.Name = "Disconnect_button";
-            this.Disconnect_button.Size = new System.Drawing.Size(121, 23);
-            this.Disconnect_button.TabIndex = 3;
-            this.Disconnect_button.Text = "Disconnect";
-            this.Disconnect_button.UseVisualStyleBackColor = true;
-            // 
             // ReceivedData_groupbox
             // 
             this.ReceivedData_groupbox.Controls.Add(this.ReceivedData_textbox);
             this.ReceivedData_groupbox.Controls.Add(this.ClearReceived_button);
             this.ReceivedData_groupbox.Location = new System.Drawing.Point(12, 192);
             this.ReceivedData_groupbox.Name = "ReceivedData_groupbox";
-            this.ReceivedData_groupbox.Size = new System.Drawing.Size(776, 205);
+            this.ReceivedData_groupbox.Size = new System.Drawing.Size(885, 205);
             this.ReceivedData_groupbox.TabIndex = 1;
             this.ReceivedData_groupbox.TabStop = false;
             this.ReceivedData_groupbox.Text = "Received Data";
+            // 
+            // ReceivedData_textbox
+            // 
+            this.ReceivedData_textbox.Location = new System.Drawing.Point(27, 31);
+            this.ReceivedData_textbox.Multiline = true;
+            this.ReceivedData_textbox.Name = "ReceivedData_textbox";
+            this.ReceivedData_textbox.Size = new System.Drawing.Size(821, 122);
+            this.ReceivedData_textbox.TabIndex = 2;
             // 
             // ClearReceived_button
             // 
@@ -110,34 +122,49 @@
             this.ClearReceived_button.TabIndex = 1;
             this.ClearReceived_button.Text = "Clear Window";
             this.ClearReceived_button.UseVisualStyleBackColor = true;
+            this.ClearReceived_button.Click += new System.EventHandler(this.ClearReceived_button_Click);
             // 
-            // ReceivedData_textbox
+            // CalibrateLF025_button
             // 
-            this.ReceivedData_textbox.Location = new System.Drawing.Point(27, 31);
-            this.ReceivedData_textbox.Multiline = true;
-            this.ReceivedData_textbox.Name = "ReceivedData_textbox";
-            this.ReceivedData_textbox.Size = new System.Drawing.Size(722, 122);
-            this.ReceivedData_textbox.TabIndex = 2;
+            this.CalibrateLF025_button.Location = new System.Drawing.Point(218, 23);
+            this.CalibrateLF025_button.Name = "CalibrateLF025_button";
+            this.CalibrateLF025_button.Size = new System.Drawing.Size(95, 48);
+            this.CalibrateLF025_button.TabIndex = 2;
+            this.CalibrateLF025_button.Text = "calibrate LF025";
+            this.CalibrateLF025_button.UseVisualStyleBackColor = true;
+            this.CalibrateLF025_button.Click += new System.EventHandler(this.Calibrate06_button_Click);
             // 
-            // Calibrate06_button
+            // panel1
             // 
-            this.Calibrate06_button.Location = new System.Drawing.Point(280, 30);
-            this.Calibrate06_button.Name = "Calibrate06_button";
-            this.Calibrate06_button.Size = new System.Drawing.Size(95, 48);
-            this.Calibrate06_button.TabIndex = 2;
-            this.Calibrate06_button.Text = "calibrate 0.6";
-            this.Calibrate06_button.UseVisualStyleBackColor = true;
+            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Location = new System.Drawing.Point(612, 57);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(18, 21);
+            this.panel1.TabIndex = 3;
             // 
-            // Form1
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(218, 77);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(98, 48);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "remove ";
+            this.button1.UseVisualStyleBackColor = true;
+            
+            // 
+            // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.Calibrate06_button);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(930, 450);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.CalibrateLF025_button);
             this.Controls.Add(this.ReceivedData_groupbox);
             this.Controls.Add(this.Connection_Groupbox);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "MainWindow";
+            this.Text = "Distance Control";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.Connection_Groupbox.ResumeLayout(false);
             this.Connection_Groupbox.PerformLayout();
@@ -157,8 +184,10 @@
         private System.Windows.Forms.GroupBox ReceivedData_groupbox;
         private System.Windows.Forms.Button ClearReceived_button;
         private System.Windows.Forms.TextBox ReceivedData_textbox;
-        private System.Windows.Forms.Button Calibrate06_button;
-        private System.IO.Ports.SerialPort serialPort1;
+        private System.Windows.Forms.Button CalibrateLF025_button;
+        private System.IO.Ports.SerialPort Atmega328SerialPort;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button button1;
     }
 }
 
