@@ -19,7 +19,7 @@ namespace Distance_Control
 
         
 
-        public SerialTransfer test = new SerialTransfer();
+        public SerialTransfer Atmega328SerialPort = new SerialTransfer();
 
         
         
@@ -59,14 +59,10 @@ namespace Distance_Control
                 ComPort_label.Text = "Serial Port:      connected";
                 CalibrateLF025_button.Enabled = true;
                 RemoveElectrode_button.Enabled = true;
-                test.GetSerialPort().PortName = ComPort_combobox.Text;
-                test.GetSerialPort().BaudRate = 250000;
-                test.GetSerialPort().Open();
-                test.GetSerialPort().DataReceived += Atmega328SerialPort_DataReceived;
-                this.myDelegate = new AddDataDelegate(AddDataMethod);
-                //status_Block.Text = "Connected";
+                Atmega328SerialPort.InitializeSerialPort(ComPort_combobox.Text);
+                Atmega328SerialPort.GetSerialPort().DataReceived += Atmega328SerialPort_DataReceived;
+                this.myDelegate = new AddDataDelegate(AddDataMethod);             
                 
-
             }
 
             catch(Exception ex)
@@ -75,9 +71,11 @@ namespace Distance_Control
             }
         }
 
+        /****************** Eventhandler Serial Receive **********************************************************/    
+
         private void Atmega328SerialPort_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
-            string in_data = test.GetSerialPort().ReadExisting();
+            string in_data = Atmega328SerialPort.GetSerialPort().ReadExisting();
             ReceivedData_textbox.Invoke(this.myDelegate, new Object[] { in_data });
         }
 
@@ -85,13 +83,13 @@ namespace Distance_Control
         {
             ReceivedData_textbox.AppendText(myString);
         }
-
+        /*********************************************************************************************************/
+        
         private void CalibrateLF025_button_Click(object sender, EventArgs e)
         {
             try
             {
-                test.GetSerialPort().Write("cxxx");
-                
+                Atmega328SerialPort.CalibrateLF025();   // 0.6 mm distance              
             }
 
             catch (Exception)
@@ -105,7 +103,7 @@ namespace Distance_Control
         {
             try
             {
-                if (test.GetSerialPort().IsOpen)
+                if (Atmega328SerialPort.GetSerialPort().IsOpen)
                 {
 
                     {
@@ -131,7 +129,7 @@ namespace Distance_Control
                 CalibrateLF025_button.Enabled = false;
                 RemoveElectrode_button.Enabled = false;
                 Connect_button.Enabled = true;
-                test.GetSerialPort().Close();                
+                Atmega328SerialPort.GetSerialPort().Close();                
 
             }
             catch (Exception)
@@ -145,8 +143,7 @@ namespace Distance_Control
         {
             try
             {
-                test.GetSerialPort().Write("bxxx");
-                
+                Atmega328SerialPort.RemoveElectrode();                
             }
 
             catch (Exception)

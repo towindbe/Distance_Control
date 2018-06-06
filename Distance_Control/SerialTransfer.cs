@@ -11,18 +11,35 @@ namespace Distance_Control
     {
 
         private SerialPort _port = new SerialPort();
+        private int _baudrate = 250000;
 
+
+        // get methode
         public SerialPort GetSerialPort()
         {
             return _port;
         }
 
-
-
-        public void CalibrateLF025(string message, SerialPort port)
+        public void InitializeSerialPort(string PortName)
         {
-            //_port.Write(");
+            _port.BaudRate = _baudrate;
+            _port.PortName = PortName;
+            _port.Open();
         }
 
+
+        /***************************** Motor Action Methods ************************/
+
+        public void CalibrateLF025()
+        {
+            _port.Write("cxxx");
+        }
+
+        public void RemoveElectrode()
+        {
+            _port.Write("bxxx");
+        }
+               
+        /***************************************************************************/
     }
 }
