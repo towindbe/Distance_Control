@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.Connection_Groupbox = new System.Windows.Forms.GroupBox();
             this.Disconnect_button = new System.Windows.Forms.Button();
             this.Connect_button = new System.Windows.Forms.Button();
@@ -38,8 +37,7 @@
             this.ReceivedData_textbox = new System.Windows.Forms.TextBox();
             this.ClearReceived_button = new System.Windows.Forms.Button();
             this.CalibrateLF025_button = new System.Windows.Forms.Button();
-            this.Atmega328SerialPort = new System.IO.Ports.SerialPort(this.components);
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.RemoveElectrode_button = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.Connection_Groupbox.SuspendLayout();
             this.ReceivedData_groupbox.SuspendLayout();
@@ -132,25 +130,27 @@
             this.CalibrateLF025_button.TabIndex = 2;
             this.CalibrateLF025_button.Text = "calibrate LF025";
             this.CalibrateLF025_button.UseVisualStyleBackColor = true;
-            this.CalibrateLF025_button.Click += new System.EventHandler(this.Calibrate06_button_Click);
+            this.CalibrateLF025_button.Click += new System.EventHandler(this.CalibrateLF025_button_Click);
             // 
-            // panel1
+            // RemoveElectrode_button
             // 
-            this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Location = new System.Drawing.Point(612, 57);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(18, 21);
-            this.panel1.TabIndex = 3;
+            this.RemoveElectrode_button.Location = new System.Drawing.Point(218, 84);
+            this.RemoveElectrode_button.Name = "RemoveElectrode_button";
+            this.RemoveElectrode_button.Size = new System.Drawing.Size(95, 48);
+            this.RemoveElectrode_button.TabIndex = 3;
+            this.RemoveElectrode_button.Text = "Remove";
+            this.RemoveElectrode_button.UseVisualStyleBackColor = true;
+            this.RemoveElectrode_button.Click += new System.EventHandler(this.RemoveElectrode_button_Click);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(218, 77);
+            this.button1.Location = new System.Drawing.Point(665, 54);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(98, 48);
+            this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 4;
-            this.button1.Text = "remove ";
+            this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
-            
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // MainWindow
             // 
@@ -159,13 +159,13 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(930, 450);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.RemoveElectrode_button);
             this.Controls.Add(this.CalibrateLF025_button);
             this.Controls.Add(this.ReceivedData_groupbox);
             this.Controls.Add(this.Connection_Groupbox);
             this.Name = "MainWindow";
             this.Text = "Distance Control";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Load += new System.EventHandler(this.MainWindow_Load);
             this.Connection_Groupbox.ResumeLayout(false);
             this.Connection_Groupbox.PerformLayout();
             this.ReceivedData_groupbox.ResumeLayout(false);
@@ -185,8 +185,7 @@
         private System.Windows.Forms.Button ClearReceived_button;
         private System.Windows.Forms.TextBox ReceivedData_textbox;
         private System.Windows.Forms.Button CalibrateLF025_button;
-        private System.IO.Ports.SerialPort Atmega328SerialPort;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button RemoveElectrode_button;
         private System.Windows.Forms.Button button1;
     }
 }
