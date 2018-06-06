@@ -15,6 +15,8 @@ namespace Distance_Control
         public Form1()
         {
             InitializeComponent();
+
+
         }
     }
 }
