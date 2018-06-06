@@ -71,7 +71,7 @@ namespace Distance_Control
             }
         }
 
-        /****************** Eventhandler Serial Receive **********************************************************/    
+        //_________________________________ Eventhandler Serial Receive __________________________________________    
 
         private void Atmega328SerialPort_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
@@ -83,7 +83,7 @@ namespace Distance_Control
         {
             ReceivedData_textbox.AppendText(myString);
         }
-        /*********************************************************************************************************/
+        //________________________________________________________________________________________________________
         
         private void CalibrateLF025_button_Click(object sender, EventArgs e)
         {
