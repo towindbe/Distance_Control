@@ -12,14 +12,15 @@ namespace Distance_Control
 
         private SerialPort _port = new SerialPort();
         private int _baudrate = 250000;
-        private byte i = 0xef;
+
 
         //____________________________ Sending Codes__________________________________________________
 
-        private byte byteCalibLF025  = 0x63; // c Calibrate LF025 
-        private byte byteRemove      = 0x62; // b Remove Electrode
-        private byte byteReset       = 0x72; // r Hardware Reset 
-        private byte byteStallValue  = 0x61; // a set Stall Value 
+        private byte byteStallValue  = 0x61;   // a set Stall Value 
+        private byte byteRemove      = 0x62;   // b Remove Electrode
+        private byte byteCalibLF025  = 0x63;   // c Calibrate LF025         
+        private byte byteReset       = 0x72;   // r Hardware Reset 
+        private byte bytePadding     = 0x78;   // x Replacement        
 
 
         //____________________________________________________________________________________________    
@@ -42,13 +43,18 @@ namespace Distance_Control
         //____________________________ Motor Action Methods __________________________________________
 
         public void CalibrateLF025()
-        {
-            _port.Write("cxxx");            
+        {            
+            _port.Write(new byte[] { byteCalibLF025, bytePadding, bytePadding, bytePadding }, 0, 4);
         }
 
         public void RemoveElectrode()
+        {            
+            _port.Write(new byte[] { byteRemove, bytePadding, bytePadding, bytePadding }, 0, 4);
+        }
+
+        public void HardwareReset()
         {
-            _port.Write("bxxx");
+            _port.Write(new byte[] { byteReset, bytePadding, bytePadding, bytePadding }, 0, 4);
         }
                
         //_____________________________________________________________________________________________
