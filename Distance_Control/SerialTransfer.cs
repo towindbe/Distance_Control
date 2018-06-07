@@ -12,6 +12,9 @@ namespace Distance_Control
 
         private SerialPort _port = new SerialPort();
         private int _baudrate = 250000;
+        private System.Text.ASCIIEncoding enc = new System.Text.ASCIIEncoding();
+        private byte[] UserInputs;
+        private bool _portIsOpen = false;
 
 
         //____________________________ Sending Codes__________________________________________________
@@ -37,8 +40,15 @@ namespace Distance_Control
             _port.BaudRate = _baudrate;
             _port.PortName = PortName;
             _port.Open();
+            _portIsOpen = true;
+
         }
 
+        // get Port Status
+        public bool GetPortStatus()
+        {
+            return _portIsOpen;
+        }
 
         //____________________________ Motor Action Methods __________________________________________
 
@@ -55,6 +65,12 @@ namespace Distance_Control
         public void HardwareReset()
         {
             _port.Write(new byte[] { byteReset, bytePadding, bytePadding, bytePadding }, 0, 4);
+        }
+
+        public void SetStallValue(Int32 StallValueInput)
+        {
+            //UserInputs = enc.GetBytes(StallValueInput);
+            _port.Write(new byte[] { byteStallValue, Convert.ToByte(StallValueInput), bytePadding, bytePadding }, 0, 4);
         }
                
         //_____________________________________________________________________________________________

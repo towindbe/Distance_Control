@@ -16,22 +16,22 @@ namespace Distance_Control
 
         public delegate void AddDataDelegate(String myString);
         public AddDataDelegate myDelegate;
-
-        
+               
 
         public SerialTransfer Atmega328SerialPort = new SerialTransfer();
 
+        private int TrackBarDefault = 15;
         
-        
-
-
-
 
         public MainWindow()
         {
             InitializeComponent();
             CalibrateLF025_button.Enabled = false;
             RemoveElectrode_button.Enabled = false;
+            ResetHardware_button.Enabled = false;
+            Disconnect_button.Enabled = false;
+            StallValue_groupbox.Enabled = false;
+            SetStallValue_button.Enabled = false;
 
 
 
@@ -45,15 +45,16 @@ namespace Distance_Control
             if(ComPort_combobox.Items.Count != 0 )
             {
                 ComPort_combobox.SelectedIndex = 0;
-            }
+            }            
             
-            Disconnect_button.Enabled = false;
         }
 
         private void Connect_button_Click(object sender, EventArgs e)
         {
             Connect_button.Enabled = false;
             Disconnect_button.Enabled = true;
+            ResetHardware_button.Enabled = true;
+            StallValue_groupbox.Enabled = true;
             try
             {
                 ComPort_label.Text = "Serial Port:      connected";
@@ -129,6 +130,8 @@ namespace Distance_Control
                 CalibrateLF025_button.Enabled = false;
                 RemoveElectrode_button.Enabled = false;
                 Connect_button.Enabled = true;
+                ResetHardware_button.Enabled = false;
+                StallValue_groupbox.Enabled = false;
                 Atmega328SerialPort.GetSerialPort().Close();                
 
             }
@@ -157,6 +160,59 @@ namespace Distance_Control
         {
             Form1 xu = new Form1();
             xu.Show();
+        }
+
+        private void ResetHardware_button_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Atmega328SerialPort.HardwareReset();
+            }
+
+            catch (Exception)
+            {
+
+                MessageBox.Show("First Connect please");
+            }
+        }
+
+        private void StallValue_textbox_TextChanged(object sender, EventArgs e)
+        {
+            SetStallValue_button.Enabled = true;
+
+        }
+
+        private void SetStallValue_button_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+
+                if (Atmega328SerialPort.GetPortStatus())
+                {
+                    
+                    Atmega328SerialPort.SetStallValue(Int32.Parse(StallValue_textbox.Text));
+
+
+                    StallValue_textbox.Clear();
+                    SetStallValue_button.Enabled = false;
+                }
+
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("type in value");
+            }
+            
+        }
+
+        private void Sensitivity_checkbox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (Sensitivity_checkbox.Checked)
+            {
+                Stallvalue_trackbar.Value = TrackBarDefault;
+            }            
         }
     }
 }
