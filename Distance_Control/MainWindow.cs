@@ -21,7 +21,8 @@ namespace Distance_Control
         public SerialTransfer Atmega328SerialPort = new SerialTransfer();
 
         private int TrackBarDefault = 15;
-        
+        private string in_data_Serial;
+
 
         public MainWindow()
         {
@@ -79,8 +80,8 @@ namespace Distance_Control
 
         private void Atmega328SerialPort_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
-            string in_data = Atmega328SerialPort.GetSerialPort().ReadExisting();
-            ReceivedData_textbox.Invoke(this.myDelegate, new Object[] { in_data });
+            in_data_Serial = Atmega328SerialPort.GetSerialPort().ReadExisting();
+            ReceivedData_textbox.Invoke(this.myDelegate, new Object[] { in_data_Serial });
         }
 
         public void AddDataMethod(String myString)
@@ -160,12 +161,7 @@ namespace Distance_Control
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Form1 xu = new Form1();
-            xu.Show();
-        }
-
+       
         private void ResetHardware_button_Click(object sender, EventArgs e)
         {
             try
@@ -263,6 +259,19 @@ namespace Distance_Control
                 SetSensitivity_button.Enabled = true;
             }
             
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+            
+            MotorStallMonitor LiveChartMonitor = new MotorStallMonitor();
+            LiveChartMonitor.CustomValue = ComPort_combobox.Text;
+            LiveChartMonitor.Atmega328SerialPort_Monitor = Atmega328SerialPort;
+            LiveChartMonitor.Show();
+            
+           
+
         }
     }
 }

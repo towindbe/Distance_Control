@@ -38,7 +38,7 @@
             this.ClearReceived_button = new System.Windows.Forms.Button();
             this.CalibrateLF025_button = new System.Windows.Forms.Button();
             this.RemoveElectrode_button = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.OpenStallMonitor_button = new System.Windows.Forms.Button();
             this.ResetHardware_button = new System.Windows.Forms.Button();
             this.StallValue_groupbox = new System.Windows.Forms.GroupBox();
             this.SetStallValue_button = new System.Windows.Forms.Button();
@@ -157,15 +157,15 @@
             this.RemoveElectrode_button.UseVisualStyleBackColor = true;
             this.RemoveElectrode_button.Click += new System.EventHandler(this.RemoveElectrode_button_Click);
             // 
-            // button1
+            // OpenStallMonitor_button
             // 
-            this.button1.Location = new System.Drawing.Point(843, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.OpenStallMonitor_button.Location = new System.Drawing.Point(778, 12);
+            this.OpenStallMonitor_button.Name = "OpenStallMonitor_button";
+            this.OpenStallMonitor_button.Size = new System.Drawing.Size(119, 106);
+            this.OpenStallMonitor_button.TabIndex = 4;
+            this.OpenStallMonitor_button.Text = "Open Stall Monitor";
+            this.OpenStallMonitor_button.UseVisualStyleBackColor = true;
+            this.OpenStallMonitor_button.Click += new System.EventHandler(this.button1_Click);
             // 
             // ResetHardware_button
             // 
@@ -296,7 +296,7 @@
             this.Controls.Add(this.Sensitivity_groupbox);
             this.Controls.Add(this.StallValue_groupbox);
             this.Controls.Add(this.ResetHardware_button);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.OpenStallMonitor_button);
             this.Controls.Add(this.RemoveElectrode_button);
             this.Controls.Add(this.CalibrateLF025_button);
             this.Controls.Add(this.ReceivedData_groupbox);
@@ -330,7 +330,7 @@
         private System.Windows.Forms.TextBox ReceivedData_textbox;
         private System.Windows.Forms.Button CalibrateLF025_button;
         private System.Windows.Forms.Button RemoveElectrode_button;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button OpenStallMonitor_button;
         private System.Windows.Forms.Button ResetHardware_button;
         private System.Windows.Forms.GroupBox StallValue_groupbox;
         private System.Windows.Forms.TextBox StallValue_textbox;
