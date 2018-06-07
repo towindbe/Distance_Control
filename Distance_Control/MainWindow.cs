@@ -32,6 +32,8 @@ namespace Distance_Control
             Disconnect_button.Enabled = false;
             StallValue_groupbox.Enabled = false;
             SetStallValue_button.Enabled = false;
+            Sensitivity_groupbox.Enabled = false;
+            SetSensitivity_button.Enabled = false;
 
 
 
@@ -55,6 +57,7 @@ namespace Distance_Control
             Disconnect_button.Enabled = true;
             ResetHardware_button.Enabled = true;
             StallValue_groupbox.Enabled = true;
+            Sensitivity_groupbox.Enabled = true;
             try
             {
                 ComPort_label.Text = "Serial Port:      connected";
@@ -132,6 +135,7 @@ namespace Distance_Control
                 Connect_button.Enabled = true;
                 ResetHardware_button.Enabled = false;
                 StallValue_groupbox.Enabled = false;
+                Sensitivity_groupbox.Enabled = false;
                 Atmega328SerialPort.GetSerialPort().Close();                
 
             }
@@ -212,7 +216,53 @@ namespace Distance_Control
             if (Sensitivity_checkbox.Checked)
             {
                 Stallvalue_trackbar.Value = TrackBarDefault;
+                Sensitivity_checkbox.Checked = true;
             }            
+        }
+
+        private void Stallvalue_trackbar_ValueChanged(object sender, EventArgs e)
+        {
+
+            if(Stallvalue_trackbar.Value==15)
+            {
+                Sensitivity_checkbox.Checked = true;
+            }
+
+            else
+            {
+                Sensitivity_checkbox.Checked = false;
+            }
+            SetSensitivity_button.Enabled = true;
+        }
+
+        private void SetSensitivity_button_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                if (Atmega328SerialPort.GetPortStatus())
+                {
+
+                    Atmega328SerialPort.SetStallValue(Stallvalue_trackbar.Value);
+                    SetSensitivity_button.Enabled = false;
+                                      
+                }
+
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("type in value");
+            }
+        }
+
+        private void Sensitivity_checkbox_Click(object sender, EventArgs e)
+        {
+            if(Sensitivity_checkbox.Checked)
+            {
+                SetSensitivity_button.Enabled = true;
+            }
+            
         }
     }
 }

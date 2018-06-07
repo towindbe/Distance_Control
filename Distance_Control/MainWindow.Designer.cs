@@ -123,6 +123,7 @@
             this.ReceivedData_textbox.Location = new System.Drawing.Point(27, 31);
             this.ReceivedData_textbox.Multiline = true;
             this.ReceivedData_textbox.Name = "ReceivedData_textbox";
+            this.ReceivedData_textbox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.ReceivedData_textbox.Size = new System.Drawing.Size(821, 122);
             this.ReceivedData_textbox.TabIndex = 2;
             // 
@@ -227,6 +228,7 @@
             this.Stallvalue_trackbar.Size = new System.Drawing.Size(228, 45);
             this.Stallvalue_trackbar.TabIndex = 7;
             this.Stallvalue_trackbar.Value = 15;
+            this.Stallvalue_trackbar.ValueChanged += new System.EventHandler(this.Stallvalue_trackbar_ValueChanged);
             // 
             // Sensitivity_groupbox
             // 
@@ -269,10 +271,13 @@
             this.SetSensitivity_button.TabIndex = 8;
             this.SetSensitivity_button.Text = "Set Limit";
             this.SetSensitivity_button.UseVisualStyleBackColor = true;
+            this.SetSensitivity_button.Click += new System.EventHandler(this.SetSensitivity_button_Click);
             // 
             // Sensitivity_checkbox
             // 
             this.Sensitivity_checkbox.AutoSize = true;
+            this.Sensitivity_checkbox.Checked = true;
+            this.Sensitivity_checkbox.CheckState = System.Windows.Forms.CheckState.Checked;
             this.Sensitivity_checkbox.Location = new System.Drawing.Point(157, 106);
             this.Sensitivity_checkbox.Name = "Sensitivity_checkbox";
             this.Sensitivity_checkbox.Size = new System.Drawing.Size(96, 17);
@@ -280,6 +285,7 @@
             this.Sensitivity_checkbox.Text = "Default Setting";
             this.Sensitivity_checkbox.UseVisualStyleBackColor = true;
             this.Sensitivity_checkbox.CheckedChanged += new System.EventHandler(this.Sensitivity_checkbox_CheckedChanged);
+            this.Sensitivity_checkbox.Click += new System.EventHandler(this.Sensitivity_checkbox_Click);
             // 
             // MainWindow
             // 

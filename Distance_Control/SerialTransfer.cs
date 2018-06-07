@@ -11,9 +11,7 @@ namespace Distance_Control
     {
 
         private SerialPort _port = new SerialPort();
-        private int _baudrate = 250000;
-        private System.Text.ASCIIEncoding enc = new System.Text.ASCIIEncoding();
-        private byte[] UserInputs;
+        private int _baudrate = 250000;        
         private bool _portIsOpen = false;
 
 
