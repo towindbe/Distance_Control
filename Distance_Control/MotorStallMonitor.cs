@@ -34,6 +34,7 @@ namespace Distance_Control
         {
             try
             {
+                
                 Atmega328SerialPort_Monitor.GetSerialPort().DataReceived += MotorStallMonitor_DataReceived;
                 
 

@@ -93,7 +93,7 @@ namespace Distance_Control
         private void CalibrateLF025_button_Click(object sender, EventArgs e)
         {
             try
-            {
+            {                
                 Atmega328SerialPort.CalibrateLF025();   // 0.6 mm distance              
             }
 
@@ -272,6 +272,20 @@ namespace Distance_Control
             
            
 
+        }
+
+        private void CalibrateHP095_button_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Atmega328SerialPort.CalibrateHP095();   // 1.6 mm distance              
+            }
+
+            catch (Exception)
+            {
+
+                MessageBox.Show("First Connect please");
+            }
         }
     }
 }

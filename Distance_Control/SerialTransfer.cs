@@ -19,7 +19,8 @@ namespace Distance_Control
         
         private byte byteStallValue  = 0x61;   // a set Stall Value 
         private byte byteRemove      = 0x62;   // b Remove Electrode
-        private byte byteCalibLF025  = 0x63;   // c Calibrate LF025         
+        private byte byteCalibLF025  = 0x63;   // c Calibrate LF025   
+        private byte byteCalibHP095  = 0x64;   // d Calibrate HP095
         private byte byteReset       = 0x72;   // r Hardware Reset 
         private byte bytePadding     = 0x78;   // x Replacement    
         private byte byteLiveChart   = 0x4C;   // L
@@ -61,6 +62,11 @@ namespace Distance_Control
         public void CalibrateLF025()
         {            
             _port.Write(new byte[] { byteCalibLF025, bytePadding, bytePadding, bytePadding }, 0, 4);
+        }
+
+        public void CalibrateHP095()
+        {
+            _port.Write(new byte[] { byteCalibHP095, bytePadding, bytePadding, bytePadding }, 0, 4);
         }
 
         public void CalibrateLF025LiveChart()

@@ -50,6 +50,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.SetSensitivity_button = new System.Windows.Forms.Button();
             this.Sensitivity_checkbox = new System.Windows.Forms.CheckBox();
+            this.CalibrateHP095_button = new System.Windows.Forms.Button();
             this.Connection_Groupbox.SuspendLayout();
             this.ReceivedData_groupbox.SuspendLayout();
             this.StallValue_groupbox.SuspendLayout();
@@ -143,13 +144,13 @@
             this.CalibrateLF025_button.Name = "CalibrateLF025_button";
             this.CalibrateLF025_button.Size = new System.Drawing.Size(95, 48);
             this.CalibrateLF025_button.TabIndex = 2;
-            this.CalibrateLF025_button.Text = "calibrate LF025";
+            this.CalibrateLF025_button.Text = "Calibrate LF025";
             this.CalibrateLF025_button.UseVisualStyleBackColor = true;
             this.CalibrateLF025_button.Click += new System.EventHandler(this.CalibrateLF025_button_Click);
             // 
             // RemoveElectrode_button
             // 
-            this.RemoveElectrode_button.Location = new System.Drawing.Point(654, 66);
+            this.RemoveElectrode_button.Location = new System.Drawing.Point(654, 120);
             this.RemoveElectrode_button.Name = "RemoveElectrode_button";
             this.RemoveElectrode_button.Size = new System.Drawing.Size(95, 23);
             this.RemoveElectrode_button.TabIndex = 3;
@@ -169,7 +170,7 @@
             // 
             // ResetHardware_button
             // 
-            this.ResetHardware_button.Location = new System.Drawing.Point(654, 95);
+            this.ResetHardware_button.Location = new System.Drawing.Point(654, 149);
             this.ResetHardware_button.Name = "ResetHardware_button";
             this.ResetHardware_button.Size = new System.Drawing.Size(95, 23);
             this.ResetHardware_button.TabIndex = 5;
@@ -287,12 +288,23 @@
             this.Sensitivity_checkbox.CheckedChanged += new System.EventHandler(this.Sensitivity_checkbox_CheckedChanged);
             this.Sensitivity_checkbox.Click += new System.EventHandler(this.Sensitivity_checkbox_Click);
             // 
+            // CalibrateHP095_button
+            // 
+            this.CalibrateHP095_button.Location = new System.Drawing.Point(654, 66);
+            this.CalibrateHP095_button.Name = "CalibrateHP095_button";
+            this.CalibrateHP095_button.Size = new System.Drawing.Size(95, 48);
+            this.CalibrateHP095_button.TabIndex = 9;
+            this.CalibrateHP095_button.Text = "Calibrate HP095";
+            this.CalibrateHP095_button.UseVisualStyleBackColor = true;
+            this.CalibrateHP095_button.Click += new System.EventHandler(this.CalibrateHP095_button_Click);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(930, 450);
+            this.Controls.Add(this.CalibrateHP095_button);
             this.Controls.Add(this.Sensitivity_groupbox);
             this.Controls.Add(this.StallValue_groupbox);
             this.Controls.Add(this.ResetHardware_button);
@@ -342,6 +354,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.CheckBox Sensitivity_checkbox;
+        private System.Windows.Forms.Button CalibrateHP095_button;
     }
 }
 
