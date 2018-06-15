@@ -278,7 +278,7 @@ namespace Distance_Control
         {
             try
             {
-                Atmega328SerialPort.CalibrateHP095();   // 1.6 mm distance              
+                Atmega328SerialPort.CalibrateHP095();   // set 1.6 mm distance             
             }
 
             catch (Exception)
