@@ -20,7 +20,7 @@ namespace Distance_Control
 
         public SerialTransfer Atmega328SerialPort = new SerialTransfer();
 
-        private int TrackBarDefault = 15;
+        private int TrackBarDefault = 11;
         private string in_data_Serial;
 
 
@@ -54,7 +54,7 @@ namespace Distance_Control
 
         private void Connect_button_Click(object sender, EventArgs e)
         {
-            Connect_button.Enabled = false;
+            Connect_button.Enabled = false;            
             Disconnect_button.Enabled = true;
             ResetHardware_button.Enabled = true;
             StallValue_groupbox.Enabled = true;
@@ -219,7 +219,7 @@ namespace Distance_Control
         private void Stallvalue_trackbar_ValueChanged(object sender, EventArgs e)
         {
 
-            if(Stallvalue_trackbar.Value==15)
+            if(Stallvalue_trackbar.Value==11)
             {
                 Sensitivity_checkbox.Checked = true;
             }

@@ -46,10 +46,10 @@
             this.StallValue_label = new System.Windows.Forms.Label();
             this.Stallvalue_trackbar = new System.Windows.Forms.TrackBar();
             this.Sensitivity_groupbox = new System.Windows.Forms.GroupBox();
+            this.Sensitivity_checkbox = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.SetSensitivity_button = new System.Windows.Forms.Button();
-            this.Sensitivity_checkbox = new System.Windows.Forms.CheckBox();
             this.CalibrateHP095_button = new System.Windows.Forms.Button();
             this.Connection_Groupbox.SuspendLayout();
             this.ReceivedData_groupbox.SuspendLayout();
@@ -222,13 +222,13 @@
             // 
             this.Stallvalue_trackbar.LargeChange = 1;
             this.Stallvalue_trackbar.Location = new System.Drawing.Point(26, 51);
-            this.Stallvalue_trackbar.Maximum = 21;
-            this.Stallvalue_trackbar.Minimum = 13;
+            this.Stallvalue_trackbar.Maximum = 15;
+            this.Stallvalue_trackbar.Minimum = 9;
             this.Stallvalue_trackbar.Name = "Stallvalue_trackbar";
             this.Stallvalue_trackbar.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.Stallvalue_trackbar.Size = new System.Drawing.Size(228, 45);
             this.Stallvalue_trackbar.TabIndex = 7;
-            this.Stallvalue_trackbar.Value = 15;
+            this.Stallvalue_trackbar.Value = 11;
             this.Stallvalue_trackbar.ValueChanged += new System.EventHandler(this.Stallvalue_trackbar_ValueChanged);
             // 
             // Sensitivity_groupbox
@@ -245,6 +245,20 @@
             this.Sensitivity_groupbox.TabIndex = 8;
             this.Sensitivity_groupbox.TabStop = false;
             this.Sensitivity_groupbox.Text = "Motor Stall Sensitivity";
+            // 
+            // Sensitivity_checkbox
+            // 
+            this.Sensitivity_checkbox.AutoSize = true;
+            this.Sensitivity_checkbox.Checked = true;
+            this.Sensitivity_checkbox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.Sensitivity_checkbox.Location = new System.Drawing.Point(157, 106);
+            this.Sensitivity_checkbox.Name = "Sensitivity_checkbox";
+            this.Sensitivity_checkbox.Size = new System.Drawing.Size(96, 17);
+            this.Sensitivity_checkbox.TabIndex = 11;
+            this.Sensitivity_checkbox.Text = "Default Setting";
+            this.Sensitivity_checkbox.UseVisualStyleBackColor = true;
+            this.Sensitivity_checkbox.CheckedChanged += new System.EventHandler(this.Sensitivity_checkbox_CheckedChanged);
+            this.Sensitivity_checkbox.Click += new System.EventHandler(this.Sensitivity_checkbox_Click);
             // 
             // label2
             // 
@@ -273,20 +287,6 @@
             this.SetSensitivity_button.Text = "Set Limit";
             this.SetSensitivity_button.UseVisualStyleBackColor = true;
             this.SetSensitivity_button.Click += new System.EventHandler(this.SetSensitivity_button_Click);
-            // 
-            // Sensitivity_checkbox
-            // 
-            this.Sensitivity_checkbox.AutoSize = true;
-            this.Sensitivity_checkbox.Checked = true;
-            this.Sensitivity_checkbox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.Sensitivity_checkbox.Location = new System.Drawing.Point(157, 106);
-            this.Sensitivity_checkbox.Name = "Sensitivity_checkbox";
-            this.Sensitivity_checkbox.Size = new System.Drawing.Size(96, 17);
-            this.Sensitivity_checkbox.TabIndex = 11;
-            this.Sensitivity_checkbox.Text = "Default Setting";
-            this.Sensitivity_checkbox.UseVisualStyleBackColor = true;
-            this.Sensitivity_checkbox.CheckedChanged += new System.EventHandler(this.Sensitivity_checkbox_CheckedChanged);
-            this.Sensitivity_checkbox.Click += new System.EventHandler(this.Sensitivity_checkbox_Click);
             // 
             // CalibrateHP095_button
             // 
