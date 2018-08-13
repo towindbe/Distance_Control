@@ -13,17 +13,24 @@ namespace Distance_Control
         private SerialPort _port = new SerialPort();
         private int _baudrate = 250000;        
         private bool _portIsOpen = false;
+        private int irun;
+        private int ihold;
+        private byte[] array;
+        private Int32 Angle_to_Steps;
+        
 
 
         //____________________________ Sending Codes__________________________________________________
-        
+
         private byte byteStallValue  = 0x61;   // a set Stall Value 
         private byte byteRemove      = 0x62;   // b Remove Electrode
         private byte byteCalibLF025  = 0x63;   // c Calibrate LF025   
         private byte byteCalibHP095  = 0x64;   // d Calibrate HP095
+        private byte byteCurrent     = 0x65;   // e set Current
+        private byte bytePosition    = 0x66; // f set free Position
         private byte byteReset       = 0x72;   // r Hardware Reset 
         private byte bytePadding     = 0x78;   // x Replacement    
-        private byte byteLiveChart   = 0x4C;   // L
+        private byte byteLiveChart   = 0x4C;   // L 
 
 
         //____________________________ Serial Port Methods __________________________________________   
@@ -89,7 +96,24 @@ namespace Distance_Control
             //UserInputs = enc.GetBytes(StallValueInput);
             _port.Write(new byte[] { byteStallValue, Convert.ToByte(StallValueInput), bytePadding, bytePadding }, 0, 4);
         }
-               
+
+        public void SetCurrentValue(Int32 CurrentValueInput)
+        {
+            irun = CurrentValueInput;
+            ihold = irun/2;
+
+
+            _port.Write(new byte[] { byteCurrent, Convert.ToByte(irun), Convert.ToByte(ihold), bytePadding }, 0, 4);
+        }
+
+        public void setFreePosition(double AngleValueInput)
+        {
+            Angle_to_Steps = Convert.ToInt32(AngleValueInput/360*200*16);
+            array = BitConverter.GetBytes(Angle_to_Steps);
+
+            _port.Write(new byte[] { bytePosition, array[1], array[0], bytePadding }, 0, 4);
+        }
+
         //_____________________________________________________________________________________________
     }
 }

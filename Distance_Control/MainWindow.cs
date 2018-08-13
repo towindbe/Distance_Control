@@ -22,21 +22,24 @@ namespace Distance_Control
 
         private int TrackBarDefault = 11;
         private string in_data_Serial;
+        private Int32 AngleOutParse;
 
 
         public MainWindow()
         {
             InitializeComponent();
-            CalibrateLF025_button.Enabled = false;
-            RemoveElectrode_button.Enabled = false;
             ResetHardware_button.Enabled = false;
             Disconnect_button.Enabled = false;
-            StallValue_groupbox.Enabled = false;
-            SetStallValue_button.Enabled = false;
+           
             Sensitivity_groupbox.Enabled = false;
             SetSensitivity_button.Enabled = false;
-
-
+            OpenStallMonitor_button.Enabled = false;
+            ClearReceived_button.Enabled = false;
+            setCurrent_groupbox.Enabled = false;
+            Position_groupbox.Enabled = false;
+            setAngle_button.Enabled = false;
+            Calibration_groupbox.Enabled = false;
+            Calibration_button.Enabled = false;
 
         }
 
@@ -53,21 +56,27 @@ namespace Distance_Control
         }
 
         private void Connect_button_Click(object sender, EventArgs e)
-        {
-            Connect_button.Enabled = false;            
-            Disconnect_button.Enabled = true;
-            ResetHardware_button.Enabled = true;
-            StallValue_groupbox.Enabled = true;
-            Sensitivity_groupbox.Enabled = true;
+        {            
             try
             {
+
                 ComPort_label.Text = "Serial Port:      connected";
-                CalibrateLF025_button.Enabled = true;
-                RemoveElectrode_button.Enabled = true;
-                Atmega328SerialPort.InitializeSerialPort(ComPort_combobox.Text);
-                Atmega328SerialPort.GetSerialPort().DataReceived += Atmega328SerialPort_DataReceived;
-                this.myDelegate = new AddDataDelegate(AddDataMethod);             
                 
+                Atmega328SerialPort.InitializeSerialPort(ComPort_combobox.Text);
+
+                Atmega328SerialPort.GetSerialPort().DataReceived += Atmega328SerialPort_DataReceived;
+                this.myDelegate = new AddDataDelegate(AddDataMethod);
+
+                Connect_button.Enabled = false;
+                Disconnect_button.Enabled = true;
+                ResetHardware_button.Enabled = true;                
+                Sensitivity_groupbox.Enabled = true;                
+                OpenStallMonitor_button.Enabled = true;               
+                ClearReceived_button.Enabled = true;
+                setCurrent_groupbox.Enabled = true;
+                Position_groupbox.Enabled = true;
+                Calibration_groupbox.Enabled = true;
+
             }
 
             catch(Exception ex)
@@ -130,13 +139,16 @@ namespace Distance_Control
         {
             try
             {
-                ComPort_label.Text = "Serial Port:";
-                CalibrateLF025_button.Enabled = false;
-                RemoveElectrode_button.Enabled = false;
+                ComPort_label.Text = "Serial Port:";                
+                OpenStallMonitor_button.Enabled = false;                
                 Connect_button.Enabled = true;
-                ResetHardware_button.Enabled = false;
-                StallValue_groupbox.Enabled = false;
+                ResetHardware_button.Enabled = false;             
                 Sensitivity_groupbox.Enabled = false;
+                ClearReceived_button.Enabled = false;
+                setCurrent_groupbox.Enabled = false;
+                Position_groupbox.Enabled = false;
+                Calibration_groupbox.Enabled = false;
+                ComPort_label.Text = "Serial Port:  disconnected";
                 Atmega328SerialPort.GetSerialPort().Close();                
 
             }
@@ -176,36 +188,7 @@ namespace Distance_Control
             }
         }
 
-        private void StallValue_textbox_TextChanged(object sender, EventArgs e)
-        {
-            SetStallValue_button.Enabled = true;
-
-        }
-
-        private void SetStallValue_button_Click(object sender, EventArgs e)
-        {
-
-            try
-            {
-
-                if (Atmega328SerialPort.GetPortStatus())
-                {
-                    
-                    Atmega328SerialPort.SetStallValue(Int32.Parse(StallValue_textbox.Text));
-
-
-                    StallValue_textbox.Clear();
-                    SetStallValue_button.Enabled = false;
-                }
-
-            }
-            catch (Exception)
-            {
-
-                MessageBox.Show("type in value");
-            }
-            
-        }
+             
 
         private void Sensitivity_checkbox_CheckedChanged(object sender, EventArgs e)
         {
@@ -286,6 +269,122 @@ namespace Distance_Control
 
                 MessageBox.Show("First Connect please");
             }
+        }
+
+        private void setCurrent_button_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                if (Atmega328SerialPort.GetPortStatus())
+                {
+
+
+
+                    //Atmega328SerialPort.SetStallValue(Int32.Parse(StallValue_textbox.Text));
+                    Atmega328SerialPort.SetCurrentValue(Int32.Parse(setCurrent_textbox.Text));
+
+
+                    //StallValue_textbox.Clear();
+                    setCurrent_textbox.Clear();
+
+                    //SetStallValue_button.Enabled = false;
+                    setCurrent_button.Enabled = false;
+                }
+
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Value between 0 - 32");
+            }
+        }
+
+        private void setCurrent_textbox_TextChanged(object sender, EventArgs e)
+        {
+            setCurrent_button.Enabled = true;
+        }
+
+        private void setAngle_button_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                if (Atmega328SerialPort.GetPortStatus())
+                {
+
+
+
+                    //Atmega328SerialPort.SetStallValue(Int32.Parse(StallValue_textbox.Text));
+                    Atmega328SerialPort.setFreePosition(double.Parse(setAngle_textbox.Text));
+
+
+                    //StallValue_textbox.Clear();
+                    setAngle_textbox.Clear();
+
+                    //SetStallValue_button.Enabled = false;
+                    setAngle_button.Enabled = false;
+                }
+
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Value between 0 - 32");
+            }
+        }
+
+        private void setAngle_textbox_TextChanged(object sender, EventArgs e)
+        {
+            
+            if((Int32.TryParse(setAngle_textbox.Text, out AngleOutParse)) && Int32.Parse(setAngle_textbox.Text)<3686)
+            {
+                Angletomm_label.Text = "= " + (Convert.ToDouble(AngleOutParse)/360*0.8) +" mm";
+                setAngle_button.Enabled = true;
+                
+                    
+
+            }
+            else
+            {
+                Angletomm_label.Text = "= Distance in mm";
+                setAngle_button.Enabled = false;
+            }
+          
+               
+        }
+
+        private void Calibration_button_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                if(LowE_button.Checked)
+                {
+                    Atmega328SerialPort.CalibrateLF025();
+                }
+
+                if (HighE_button.Checked)
+                {
+                    Atmega328SerialPort.CalibrateHP095();
+                }
+                Calibration_button.Enabled = false;
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Value between 0 - 32");
+            }
+        }
+
+        private void LowE_button_CheckedChanged(object sender, EventArgs e)
+        {
+            Calibration_button.Enabled = true;
+        }
+
+        private void HighE_button_CheckedChanged(object sender, EventArgs e)
+        {
+            Calibration_button.Enabled = true;
         }
     }
 }

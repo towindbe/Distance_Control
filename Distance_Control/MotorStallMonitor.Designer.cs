@@ -31,6 +31,7 @@
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.CalibrateLF025_button = new System.Windows.Forms.Button();
             this.StallValue_chart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             ((System.ComponentModel.ISupportInitialize)(this.StallValue_chart)).BeginInit();
@@ -38,9 +39,9 @@
             // 
             // CalibrateLF025_button
             // 
-            this.CalibrateLF025_button.Location = new System.Drawing.Point(12, 12);
+            this.CalibrateLF025_button.Location = new System.Drawing.Point(12, 401);
             this.CalibrateLF025_button.Name = "CalibrateLF025_button";
-            this.CalibrateLF025_button.Size = new System.Drawing.Size(93, 23);
+            this.CalibrateLF025_button.Size = new System.Drawing.Size(93, 37);
             this.CalibrateLF025_button.TabIndex = 0;
             this.CalibrateLF025_button.Text = "Calibrate LF025";
             this.CalibrateLF025_button.UseVisualStyleBackColor = true;
@@ -52,22 +53,26 @@
             this.StallValue_chart.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.StallValue_chart.Legends.Add(legend1);
-            this.StallValue_chart.Location = new System.Drawing.Point(85, 58);
+            this.StallValue_chart.Location = new System.Drawing.Point(12, 12);
             this.StallValue_chart.Name = "StallValue_chart";
             series1.ChartArea = "ChartArea1";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
             series1.Legend = "Legend1";
-            series1.Name = "Stall Values";
+            series1.Name = "Motor Load in %";
             this.StallValue_chart.Series.Add(series1);
-            this.StallValue_chart.Size = new System.Drawing.Size(645, 304);
+            this.StallValue_chart.Size = new System.Drawing.Size(790, 372);
             this.StallValue_chart.TabIndex = 1;
             this.StallValue_chart.Text = "chart1";
+            title1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            title1.Name = "Title";
+            title1.Text = "Motor Load depending on Stall Limit";
+            this.StallValue_chart.Titles.Add(title1);
             // 
             // MotorStallMonitor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(814, 450);
             this.Controls.Add(this.StallValue_chart);
             this.Controls.Add(this.CalibrateLF025_button);
             this.Name = "MotorStallMonitor";

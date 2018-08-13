@@ -36,26 +36,34 @@
             this.ReceivedData_groupbox = new System.Windows.Forms.GroupBox();
             this.ReceivedData_textbox = new System.Windows.Forms.TextBox();
             this.ClearReceived_button = new System.Windows.Forms.Button();
-            this.CalibrateLF025_button = new System.Windows.Forms.Button();
-            this.RemoveElectrode_button = new System.Windows.Forms.Button();
             this.OpenStallMonitor_button = new System.Windows.Forms.Button();
             this.ResetHardware_button = new System.Windows.Forms.Button();
-            this.StallValue_groupbox = new System.Windows.Forms.GroupBox();
-            this.SetStallValue_button = new System.Windows.Forms.Button();
-            this.StallValue_textbox = new System.Windows.Forms.TextBox();
-            this.StallValue_label = new System.Windows.Forms.Label();
             this.Stallvalue_trackbar = new System.Windows.Forms.TrackBar();
             this.Sensitivity_groupbox = new System.Windows.Forms.GroupBox();
             this.Sensitivity_checkbox = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.SetSensitivity_button = new System.Windows.Forms.Button();
-            this.CalibrateHP095_button = new System.Windows.Forms.Button();
+            this.setCurrent_groupbox = new System.Windows.Forms.GroupBox();
+            this.setCurrent_label = new System.Windows.Forms.Label();
+            this.setCurrent_button = new System.Windows.Forms.Button();
+            this.setCurrent_textbox = new System.Windows.Forms.TextBox();
+            this.Calibration_groupbox = new System.Windows.Forms.GroupBox();
+            this.Calibration_button = new System.Windows.Forms.Button();
+            this.HighE_button = new System.Windows.Forms.RadioButton();
+            this.LowE_button = new System.Windows.Forms.RadioButton();
+            this.Position_groupbox = new System.Windows.Forms.GroupBox();
+            this.setAngle_button = new System.Windows.Forms.Button();
+            this.setAngle_label = new System.Windows.Forms.Label();
+            this.setAngle_textbox = new System.Windows.Forms.TextBox();
+            this.Angletomm_label = new System.Windows.Forms.Label();
             this.Connection_Groupbox.SuspendLayout();
             this.ReceivedData_groupbox.SuspendLayout();
-            this.StallValue_groupbox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Stallvalue_trackbar)).BeginInit();
             this.Sensitivity_groupbox.SuspendLayout();
+            this.setCurrent_groupbox.SuspendLayout();
+            this.Calibration_groupbox.SuspendLayout();
+            this.Position_groupbox.SuspendLayout();
             this.SuspendLayout();
             // 
             // Connection_Groupbox
@@ -66,14 +74,14 @@
             this.Connection_Groupbox.Controls.Add(this.ComPort_label);
             this.Connection_Groupbox.Location = new System.Drawing.Point(12, 12);
             this.Connection_Groupbox.Name = "Connection_Groupbox";
-            this.Connection_Groupbox.Size = new System.Drawing.Size(176, 146);
+            this.Connection_Groupbox.Size = new System.Drawing.Size(153, 146);
             this.Connection_Groupbox.TabIndex = 0;
             this.Connection_Groupbox.TabStop = false;
             this.Connection_Groupbox.Text = "Connection";
             // 
             // Disconnect_button
             // 
-            this.Disconnect_button.Location = new System.Drawing.Point(24, 102);
+            this.Disconnect_button.Location = new System.Drawing.Point(15, 99);
             this.Disconnect_button.Name = "Disconnect_button";
             this.Disconnect_button.Size = new System.Drawing.Size(121, 23);
             this.Disconnect_button.TabIndex = 3;
@@ -83,7 +91,7 @@
             // 
             // Connect_button
             // 
-            this.Connect_button.Location = new System.Drawing.Point(24, 73);
+            this.Connect_button.Location = new System.Drawing.Point(15, 70);
             this.Connect_button.Name = "Connect_button";
             this.Connect_button.Size = new System.Drawing.Size(121, 23);
             this.Connect_button.TabIndex = 2;
@@ -94,7 +102,7 @@
             // ComPort_combobox
             // 
             this.ComPort_combobox.FormattingEnabled = true;
-            this.ComPort_combobox.Location = new System.Drawing.Point(24, 44);
+            this.ComPort_combobox.Location = new System.Drawing.Point(15, 41);
             this.ComPort_combobox.Name = "ComPort_combobox";
             this.ComPort_combobox.Size = new System.Drawing.Size(121, 21);
             this.ComPort_combobox.TabIndex = 1;
@@ -102,7 +110,7 @@
             // ComPort_label
             // 
             this.ComPort_label.AutoSize = true;
-            this.ComPort_label.Location = new System.Drawing.Point(21, 28);
+            this.ComPort_label.Location = new System.Drawing.Point(12, 25);
             this.ComPort_label.Name = "ComPort_label";
             this.ComPort_label.Size = new System.Drawing.Size(58, 13);
             this.ComPort_label.TabIndex = 0;
@@ -114,7 +122,7 @@
             this.ReceivedData_groupbox.Controls.Add(this.ClearReceived_button);
             this.ReceivedData_groupbox.Location = new System.Drawing.Point(12, 192);
             this.ReceivedData_groupbox.Name = "ReceivedData_groupbox";
-            this.ReceivedData_groupbox.Size = new System.Drawing.Size(885, 205);
+            this.ReceivedData_groupbox.Size = new System.Drawing.Size(897, 205);
             this.ReceivedData_groupbox.TabIndex = 1;
             this.ReceivedData_groupbox.TabStop = false;
             this.ReceivedData_groupbox.Text = "Received Data";
@@ -138,31 +146,11 @@
             this.ClearReceived_button.UseVisualStyleBackColor = true;
             this.ClearReceived_button.Click += new System.EventHandler(this.ClearReceived_button_Click);
             // 
-            // CalibrateLF025_button
-            // 
-            this.CalibrateLF025_button.Location = new System.Drawing.Point(654, 12);
-            this.CalibrateLF025_button.Name = "CalibrateLF025_button";
-            this.CalibrateLF025_button.Size = new System.Drawing.Size(95, 48);
-            this.CalibrateLF025_button.TabIndex = 2;
-            this.CalibrateLF025_button.Text = "Calibrate LF025";
-            this.CalibrateLF025_button.UseVisualStyleBackColor = true;
-            this.CalibrateLF025_button.Click += new System.EventHandler(this.CalibrateLF025_button_Click);
-            // 
-            // RemoveElectrode_button
-            // 
-            this.RemoveElectrode_button.Location = new System.Drawing.Point(654, 120);
-            this.RemoveElectrode_button.Name = "RemoveElectrode_button";
-            this.RemoveElectrode_button.Size = new System.Drawing.Size(95, 23);
-            this.RemoveElectrode_button.TabIndex = 3;
-            this.RemoveElectrode_button.Text = "Remove";
-            this.RemoveElectrode_button.UseVisualStyleBackColor = true;
-            this.RemoveElectrode_button.Click += new System.EventHandler(this.RemoveElectrode_button_Click);
-            // 
             // OpenStallMonitor_button
             // 
-            this.OpenStallMonitor_button.Location = new System.Drawing.Point(778, 12);
+            this.OpenStallMonitor_button.Location = new System.Drawing.Point(12, 417);
             this.OpenStallMonitor_button.Name = "OpenStallMonitor_button";
-            this.OpenStallMonitor_button.Size = new System.Drawing.Size(119, 106);
+            this.OpenStallMonitor_button.Size = new System.Drawing.Size(119, 39);
             this.OpenStallMonitor_button.TabIndex = 4;
             this.OpenStallMonitor_button.Text = "Open Stall Monitor";
             this.OpenStallMonitor_button.UseVisualStyleBackColor = true;
@@ -170,53 +158,13 @@
             // 
             // ResetHardware_button
             // 
-            this.ResetHardware_button.Location = new System.Drawing.Point(654, 149);
+            this.ResetHardware_button.Location = new System.Drawing.Point(161, 417);
             this.ResetHardware_button.Name = "ResetHardware_button";
-            this.ResetHardware_button.Size = new System.Drawing.Size(95, 23);
+            this.ResetHardware_button.Size = new System.Drawing.Size(119, 39);
             this.ResetHardware_button.TabIndex = 5;
             this.ResetHardware_button.Text = "Reset Hardware";
             this.ResetHardware_button.UseVisualStyleBackColor = true;
             this.ResetHardware_button.Click += new System.EventHandler(this.ResetHardware_button_Click);
-            // 
-            // StallValue_groupbox
-            // 
-            this.StallValue_groupbox.Controls.Add(this.SetStallValue_button);
-            this.StallValue_groupbox.Controls.Add(this.StallValue_textbox);
-            this.StallValue_groupbox.Controls.Add(this.StallValue_label);
-            this.StallValue_groupbox.Location = new System.Drawing.Point(206, 12);
-            this.StallValue_groupbox.Name = "StallValue_groupbox";
-            this.StallValue_groupbox.Size = new System.Drawing.Size(124, 146);
-            this.StallValue_groupbox.TabIndex = 6;
-            this.StallValue_groupbox.TabStop = false;
-            this.StallValue_groupbox.Text = "Motor Sensitivity";
-            // 
-            // SetStallValue_button
-            // 
-            this.SetStallValue_button.Location = new System.Drawing.Point(24, 72);
-            this.SetStallValue_button.Name = "SetStallValue_button";
-            this.SetStallValue_button.Size = new System.Drawing.Size(76, 24);
-            this.SetStallValue_button.TabIndex = 2;
-            this.SetStallValue_button.Text = "Set Value";
-            this.SetStallValue_button.UseVisualStyleBackColor = true;
-            this.SetStallValue_button.Click += new System.EventHandler(this.SetStallValue_button_Click);
-            // 
-            // StallValue_textbox
-            // 
-            this.StallValue_textbox.Location = new System.Drawing.Point(24, 44);
-            this.StallValue_textbox.Multiline = true;
-            this.StallValue_textbox.Name = "StallValue_textbox";
-            this.StallValue_textbox.Size = new System.Drawing.Size(76, 21);
-            this.StallValue_textbox.TabIndex = 1;
-            this.StallValue_textbox.TextChanged += new System.EventHandler(this.StallValue_textbox_TextChanged);
-            // 
-            // StallValue_label
-            // 
-            this.StallValue_label.AutoSize = true;
-            this.StallValue_label.Location = new System.Drawing.Point(21, 28);
-            this.StallValue_label.Name = "StallValue_label";
-            this.StallValue_label.Size = new System.Drawing.Size(79, 13);
-            this.StallValue_label.TabIndex = 0;
-            this.StallValue_label.Text = "Set Stall Value:";
             // 
             // Stallvalue_trackbar
             // 
@@ -238,7 +186,7 @@
             this.Sensitivity_groupbox.Controls.Add(this.label1);
             this.Sensitivity_groupbox.Controls.Add(this.SetSensitivity_button);
             this.Sensitivity_groupbox.Controls.Add(this.Stallvalue_trackbar);
-            this.Sensitivity_groupbox.Location = new System.Drawing.Point(350, 12);
+            this.Sensitivity_groupbox.Location = new System.Drawing.Point(326, 12);
             this.Sensitivity_groupbox.Name = "Sensitivity_groupbox";
             this.Sensitivity_groupbox.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.Sensitivity_groupbox.Size = new System.Drawing.Size(281, 146);
@@ -280,7 +228,7 @@
             // 
             // SetSensitivity_button
             // 
-            this.SetSensitivity_button.Location = new System.Drawing.Point(26, 102);
+            this.SetSensitivity_button.Location = new System.Drawing.Point(26, 100);
             this.SetSensitivity_button.Name = "SetSensitivity_button";
             this.SetSensitivity_button.Size = new System.Drawing.Size(89, 23);
             this.SetSensitivity_button.TabIndex = 8;
@@ -288,29 +236,151 @@
             this.SetSensitivity_button.UseVisualStyleBackColor = true;
             this.SetSensitivity_button.Click += new System.EventHandler(this.SetSensitivity_button_Click);
             // 
-            // CalibrateHP095_button
+            // setCurrent_groupbox
             // 
-            this.CalibrateHP095_button.Location = new System.Drawing.Point(654, 66);
-            this.CalibrateHP095_button.Name = "CalibrateHP095_button";
-            this.CalibrateHP095_button.Size = new System.Drawing.Size(95, 48);
-            this.CalibrateHP095_button.TabIndex = 9;
-            this.CalibrateHP095_button.Text = "Calibrate HP095";
-            this.CalibrateHP095_button.UseVisualStyleBackColor = true;
-            this.CalibrateHP095_button.Click += new System.EventHandler(this.CalibrateHP095_button_Click);
+            this.setCurrent_groupbox.Controls.Add(this.setCurrent_label);
+            this.setCurrent_groupbox.Controls.Add(this.setCurrent_button);
+            this.setCurrent_groupbox.Controls.Add(this.setCurrent_textbox);
+            this.setCurrent_groupbox.Location = new System.Drawing.Point(183, 12);
+            this.setCurrent_groupbox.Name = "setCurrent_groupbox";
+            this.setCurrent_groupbox.Size = new System.Drawing.Size(124, 146);
+            this.setCurrent_groupbox.TabIndex = 10;
+            this.setCurrent_groupbox.TabStop = false;
+            this.setCurrent_groupbox.Text = "Motor Current RMS";
+            // 
+            // setCurrent_label
+            // 
+            this.setCurrent_label.AutoSize = true;
+            this.setCurrent_label.Location = new System.Drawing.Point(23, 33);
+            this.setCurrent_label.Name = "setCurrent_label";
+            this.setCurrent_label.Size = new System.Drawing.Size(74, 13);
+            this.setCurrent_label.TabIndex = 2;
+            this.setCurrent_label.Text = "Current Value:";
+            // 
+            // setCurrent_button
+            // 
+            this.setCurrent_button.Location = new System.Drawing.Point(26, 100);
+            this.setCurrent_button.Name = "setCurrent_button";
+            this.setCurrent_button.Size = new System.Drawing.Size(75, 23);
+            this.setCurrent_button.TabIndex = 1;
+            this.setCurrent_button.Text = "Set Current";
+            this.setCurrent_button.UseVisualStyleBackColor = true;
+            this.setCurrent_button.Click += new System.EventHandler(this.setCurrent_button_Click);
+            // 
+            // setCurrent_textbox
+            // 
+            this.setCurrent_textbox.Location = new System.Drawing.Point(26, 49);
+            this.setCurrent_textbox.Name = "setCurrent_textbox";
+            this.setCurrent_textbox.Size = new System.Drawing.Size(76, 20);
+            this.setCurrent_textbox.TabIndex = 0;
+            this.setCurrent_textbox.TextChanged += new System.EventHandler(this.setCurrent_textbox_TextChanged);
+            // 
+            // Calibration_groupbox
+            // 
+            this.Calibration_groupbox.Controls.Add(this.Calibration_button);
+            this.Calibration_groupbox.Controls.Add(this.HighE_button);
+            this.Calibration_groupbox.Controls.Add(this.LowE_button);
+            this.Calibration_groupbox.Location = new System.Drawing.Point(627, 12);
+            this.Calibration_groupbox.Name = "Calibration_groupbox";
+            this.Calibration_groupbox.Size = new System.Drawing.Size(128, 146);
+            this.Calibration_groupbox.TabIndex = 11;
+            this.Calibration_groupbox.TabStop = false;
+            this.Calibration_groupbox.Text = "Calibration";
+            // 
+            // Calibration_button
+            // 
+            this.Calibration_button.Location = new System.Drawing.Point(25, 89);
+            this.Calibration_button.Name = "Calibration_button";
+            this.Calibration_button.Size = new System.Drawing.Size(75, 34);
+            this.Calibration_button.TabIndex = 2;
+            this.Calibration_button.Text = "Calibration";
+            this.Calibration_button.UseVisualStyleBackColor = true;
+            this.Calibration_button.Click += new System.EventHandler(this.Calibration_button_Click);
+            // 
+            // HighE_button
+            // 
+            this.HighE_button.AutoSize = true;
+            this.HighE_button.Location = new System.Drawing.Point(6, 52);
+            this.HighE_button.Name = "HighE_button";
+            this.HighE_button.Size = new System.Drawing.Size(120, 17);
+            this.HighE_button.TabIndex = 1;
+            this.HighE_button.TabStop = true;
+            this.HighE_button.Text = "High Energy Device";
+            this.HighE_button.UseVisualStyleBackColor = true;
+            this.HighE_button.CheckedChanged += new System.EventHandler(this.HighE_button_CheckedChanged);
+            // 
+            // LowE_button
+            // 
+            this.LowE_button.AutoSize = true;
+            this.LowE_button.Location = new System.Drawing.Point(6, 29);
+            this.LowE_button.Name = "LowE_button";
+            this.LowE_button.Size = new System.Drawing.Size(118, 17);
+            this.LowE_button.TabIndex = 0;
+            this.LowE_button.TabStop = true;
+            this.LowE_button.Text = "Low Energy Device";
+            this.LowE_button.UseVisualStyleBackColor = true;
+            this.LowE_button.CheckedChanged += new System.EventHandler(this.LowE_button_CheckedChanged);
+            // 
+            // Position_groupbox
+            // 
+            this.Position_groupbox.Controls.Add(this.Angletomm_label);
+            this.Position_groupbox.Controls.Add(this.setAngle_button);
+            this.Position_groupbox.Controls.Add(this.setAngle_label);
+            this.Position_groupbox.Controls.Add(this.setAngle_textbox);
+            this.Position_groupbox.Location = new System.Drawing.Point(776, 12);
+            this.Position_groupbox.Name = "Position_groupbox";
+            this.Position_groupbox.Size = new System.Drawing.Size(133, 146);
+            this.Position_groupbox.TabIndex = 12;
+            this.Position_groupbox.TabStop = false;
+            this.Position_groupbox.Text = "Free Positioning";
+            // 
+            // setAngle_button
+            // 
+            this.setAngle_button.Location = new System.Drawing.Point(17, 98);
+            this.setAngle_button.Name = "setAngle_button";
+            this.setAngle_button.Size = new System.Drawing.Size(91, 25);
+            this.setAngle_button.TabIndex = 2;
+            this.setAngle_button.Text = "Move Electrode";
+            this.setAngle_button.UseVisualStyleBackColor = true;
+            this.setAngle_button.Click += new System.EventHandler(this.setAngle_button_Click);
+            // 
+            // setAngle_label
+            // 
+            this.setAngle_label.AutoSize = true;
+            this.setAngle_label.Location = new System.Drawing.Point(14, 33);
+            this.setAngle_label.Name = "setAngle_label";
+            this.setAngle_label.Size = new System.Drawing.Size(80, 13);
+            this.setAngle_label.TabIndex = 1;
+            this.setAngle_label.Text = "Rotation Angle:";
+            // 
+            // setAngle_textbox
+            // 
+            this.setAngle_textbox.Location = new System.Drawing.Point(17, 49);
+            this.setAngle_textbox.Name = "setAngle_textbox";
+            this.setAngle_textbox.Size = new System.Drawing.Size(91, 20);
+            this.setAngle_textbox.TabIndex = 0;
+            this.setAngle_textbox.TextChanged += new System.EventHandler(this.setAngle_textbox_TextChanged);
+            // 
+            // Angletomm_label
+            // 
+            this.Angletomm_label.AutoSize = true;
+            this.Angletomm_label.Location = new System.Drawing.Point(17, 73);
+            this.Angletomm_label.Name = "Angletomm_label";
+            this.Angletomm_label.Size = new System.Drawing.Size(0, 13);
+            this.Angletomm_label.TabIndex = 3;
             // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(930, 450);
-            this.Controls.Add(this.CalibrateHP095_button);
+            this.ClientSize = new System.Drawing.Size(921, 471);
+            this.Controls.Add(this.Position_groupbox);
+            this.Controls.Add(this.Calibration_groupbox);
+            this.Controls.Add(this.setCurrent_groupbox);
             this.Controls.Add(this.Sensitivity_groupbox);
-            this.Controls.Add(this.StallValue_groupbox);
             this.Controls.Add(this.ResetHardware_button);
             this.Controls.Add(this.OpenStallMonitor_button);
-            this.Controls.Add(this.RemoveElectrode_button);
-            this.Controls.Add(this.CalibrateLF025_button);
             this.Controls.Add(this.ReceivedData_groupbox);
             this.Controls.Add(this.Connection_Groupbox);
             this.Name = "MainWindow";
@@ -321,11 +391,15 @@
             this.Connection_Groupbox.PerformLayout();
             this.ReceivedData_groupbox.ResumeLayout(false);
             this.ReceivedData_groupbox.PerformLayout();
-            this.StallValue_groupbox.ResumeLayout(false);
-            this.StallValue_groupbox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Stallvalue_trackbar)).EndInit();
             this.Sensitivity_groupbox.ResumeLayout(false);
             this.Sensitivity_groupbox.PerformLayout();
+            this.setCurrent_groupbox.ResumeLayout(false);
+            this.setCurrent_groupbox.PerformLayout();
+            this.Calibration_groupbox.ResumeLayout(false);
+            this.Calibration_groupbox.PerformLayout();
+            this.Position_groupbox.ResumeLayout(false);
+            this.Position_groupbox.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -340,21 +414,27 @@
         private System.Windows.Forms.GroupBox ReceivedData_groupbox;
         private System.Windows.Forms.Button ClearReceived_button;
         private System.Windows.Forms.TextBox ReceivedData_textbox;
-        private System.Windows.Forms.Button CalibrateLF025_button;
-        private System.Windows.Forms.Button RemoveElectrode_button;
         private System.Windows.Forms.Button OpenStallMonitor_button;
         private System.Windows.Forms.Button ResetHardware_button;
-        private System.Windows.Forms.GroupBox StallValue_groupbox;
-        private System.Windows.Forms.TextBox StallValue_textbox;
-        private System.Windows.Forms.Label StallValue_label;
-        private System.Windows.Forms.Button SetStallValue_button;
         private System.Windows.Forms.TrackBar Stallvalue_trackbar;
         private System.Windows.Forms.GroupBox Sensitivity_groupbox;
         private System.Windows.Forms.Button SetSensitivity_button;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.CheckBox Sensitivity_checkbox;
-        private System.Windows.Forms.Button CalibrateHP095_button;
+        private System.Windows.Forms.GroupBox setCurrent_groupbox;
+        private System.Windows.Forms.Label setCurrent_label;
+        private System.Windows.Forms.Button setCurrent_button;
+        private System.Windows.Forms.TextBox setCurrent_textbox;
+        private System.Windows.Forms.GroupBox Calibration_groupbox;
+        private System.Windows.Forms.RadioButton HighE_button;
+        private System.Windows.Forms.RadioButton LowE_button;
+        private System.Windows.Forms.Button Calibration_button;
+        private System.Windows.Forms.GroupBox Position_groupbox;
+        private System.Windows.Forms.Button setAngle_button;
+        private System.Windows.Forms.Label setAngle_label;
+        private System.Windows.Forms.TextBox setAngle_textbox;
+        private System.Windows.Forms.Label Angletomm_label;
     }
 }
 
